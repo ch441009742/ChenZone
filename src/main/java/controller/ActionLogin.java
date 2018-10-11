@@ -27,4 +27,12 @@ public class ActionLogin {
         }
         return "success";
     }
+
+    @RequestMapping("register")
+    public String register(User user, Model model){
+
+        boolean regis = service_user.regis(user);
+
+        return "success";
+    }
 }

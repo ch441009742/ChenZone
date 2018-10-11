@@ -10,4 +10,9 @@ public class Service_UserImpl implements Service_User {
     public boolean login(User user) {
         return false;
     }
+
+    @Override
+    public boolean regis(User user) {
+        return false;
+    }
 }

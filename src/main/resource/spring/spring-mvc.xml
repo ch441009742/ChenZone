@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 <!--由springmvc管理controller-->
     <!-- 扫描controller -->
-    <context:component-scan base-package="com.controller" />
+    <context:component-scan base-package="controller" />
 
     <!-- Spring 来扫描指定包下的类，并注册被@Component，@Controller，@Service，@Repository等注解标记的组件 -->
     <mvc:annotation-driven />

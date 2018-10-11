@@ -1,0 +1,8 @@
+CREATE TABLE c_user(
+        id int
+        phonenum number,
+        username VARCHAR,
+        nickname VARCHAR,
+        PASSWORD VARCHAR
+
+        )

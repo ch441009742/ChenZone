@@ -14,7 +14,9 @@
    -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:spring/spring-*.xml</param-value>
+    <param-value>
+      classpath*:spring/spring-*.xml
+    </param-value>
   </context-param>
   <!-- 过滤通过用于处理项目中的乱码问题，该过滤器位于org.springframework.web.filter包中，指向类CharacterEncodingFilter -->
   <filter>
@@ -66,7 +68,7 @@
     <init-param>
       <description>spring mvc 配置文件</description>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath*:spring/spring-mvc.xml</param-value>
+      <param-value>classpath:spring/spring-mvc.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
