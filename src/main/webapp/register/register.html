@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-
+    <script type="text/javascript" src="../static/js/jquery1.8.3.js"></script>
 <body>
-<form action="register.action" name="register" method="post">
+<form action="/user/register.action" id="user" name="register" method="post">
+    手机号:
+    <input type="text" name="phoneNum" id="phoneNum"><div id="msg"></div>
+
+    </br>
     用户名:
-    <input type="text" id="username"><br>
+    <input type="text" name="username"  id="username"><br>
     密码:
     <input type="password" id="password"><br>
     确认密码:
@@ -17,8 +21,20 @@
     <input type="text" id="emile"><br>
     姓名:
     <input type="text" id="name"><br>
-    <button id="register" value="注册" type="submit"/>
+    <button id="register"  type="submit">注册</button>
 </form>
+<script type="text/javascript">
+    if($("#phoneNum").val()!=""){
+        alert($("#phoneNum").val());
+       /* var phoneNum=$("#phoneNum").val();
+        $.ajax({url:"/user/checkphonenum",data:'{"phoneNum":phoneNum}',success:function(msg){
+            alert(msg);
+            }});*/
+    }
+    
+
+
+</script>
 
 </body>
 </html>

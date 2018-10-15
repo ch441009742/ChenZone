@@ -1,8 +1,10 @@
 CREATE TABLE c_user(
-        id int
-        phonenum number,
-        username VARCHAR,
-        nickname VARCHAR,
-        PASSWORD VARCHAR
+        id INT(4) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+        phonenum VARCHAR(20),
+        username VARCHAR(20),
+        nickname VARCHAR(20),
+        PASSWORD VARCHAR(20)
 
-        )
+        );
+
+        ALTER TABLE c_user ADD email VARCHAR(30)

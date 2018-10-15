@@ -74,7 +74,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springMvc</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>*.action</url-pattern>
   </servlet-mapping>
   <!--
 		  Session是由浏览器和服务器之间维护的。
@@ -86,7 +86,7 @@
   </session-config>
 
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/register/register.html</welcome-file>
   </welcome-file-list>
 </web-app>
 
