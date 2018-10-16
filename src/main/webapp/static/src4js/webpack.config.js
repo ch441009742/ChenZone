@@ -3,19 +3,32 @@ const webpack=require('webpack');
 const htmlWebpackPlugin=require('html-webpack-plugin');
 
 module.exports = {
-    entry:'./components/index.js', //入口文件
+    entry:'./components/entry.js', //入口文件
     output:{
         //node.js中__dirname变量获取当前模块文件所在目录的完整绝对路径
         path:path.resolve(__dirname, 'dist'), //输出位置
-        filename:'build.js' //输入文件
+        filename:'build.js' //输出文件
     },
     module:{
         //webpack使用loader的方式处理各种各样的资源
-        loaders:[{
+        rules:[{
             test:/\.js$/,           //用babel-loader处理
             exclude:/node_modules/, //处理除了nodde_modules里的js文件
-            loader:'babel-loader'   //用babel-loader处理
-        }]
+            use:{
+                loader: 'babel-loader',
+                options: {
+                presets: ['env','react']    //在react环境下,也可以进行打包
+                }
+            }
+           
+        },
+        // {   
+        //     test:/\.js$/,           //用babel-loader处理
+        //     exclude:/node_modules/, //处理除了nodde_modules里的js文件
+        //     use:' react-hot-loader'  
+           
+        // }
+        ]
     },
 //其他解决方案配置
     resolve: {
