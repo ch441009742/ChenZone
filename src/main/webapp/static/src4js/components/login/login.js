@@ -9,4 +9,4 @@ const Name = () => (
   const Name2=()=>(
       <div>aaaaaaaaaaaaaaaaa</div>
   );
-export default Name;
+exports default [Name,Name2];
