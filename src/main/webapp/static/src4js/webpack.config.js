@@ -3,10 +3,12 @@ const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './components/entry.js', //入口文件
+    devtool: 'eval-source-map',     //生成map
+    entry: './components/index.js', //入口文件
     output: {
         //node.js中__dirname变量获取当前模块文件所在目录的完整绝对路径
-        path: path.resolve(__dirname, 'dist'), //输出位置
+        // path: path.resolve(__dirname, '../dist'), //输出位置
+        path: path.resolve(__dirname, '../../WEB-INF/chenzone'), //输出位置
         filename: 'build.js' //输出文件
     },
     module: {
@@ -44,16 +46,18 @@ module.exports = {
 
     },
     //插件
-    plugins: [
-        new htmlWebpackPlugin({
-            template: 'components/index.html',//模板
-            filename: 'index.html',
-            inject: 'body',                   //放在哪个标签 (body)
-            title: 'TEST'
-        }),
-        new webpack.HotModuleReplacementPlugin()
+    plugins:
+        [
+            //自动生成HTML文件
+            // new htmlWebpackPlugin({
+            //     template: 'components/index.html',//模板
+            //     filename: 'index.html',
+            //     inject: 'body',                   //放在哪个标签 (body)
+            //     title: 'TEST'
+            // }),
+            new webpack.HotModuleReplacementPlugin()
 
-    ],
+        ],
     devServer: {
         contentBase: "./dist", // 本地服务器在哪个目录搭建页面，一般我们在当前目录即可；
 
@@ -65,7 +69,7 @@ module.exports = {
 
         hot: true,       // 启动webpack热模块替换特性；
 
-        port: 8081,
+        port: 8083,
 
         open: true       //自动打开浏览器
     }

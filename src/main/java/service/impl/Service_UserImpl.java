@@ -15,7 +15,7 @@ public class Service_UserImpl implements Service_User {
 
     @Override
     public boolean login(User user) {
-        return false;
+        return userDao.login(user);
     }
 
     @Override
