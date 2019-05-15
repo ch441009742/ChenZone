@@ -13,6 +13,7 @@ import Demo from './page/Demo'
 import Note from './page/Note'
 import Void from './page/Void'
 import Regin from './page/Regin'
+import Leetcode from './page/Leetcode'
 
 
 class Root extends React.Component {
@@ -33,7 +34,7 @@ class Root extends React.Component {
           <Route path="/note" component={Note} />
           <Route path="/void" component={Void} />
           <Route path="/regin" component={Regin} />
-
+          <Route path="/leetcode" component={Leetcode} />
 
 
         </HashRouter>

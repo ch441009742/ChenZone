@@ -123,6 +123,11 @@
       <artifactId>mysql8</artifactId>
       <version>8.0.12</version>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.7</version>
+    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
