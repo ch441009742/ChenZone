@@ -2,6 +2,8 @@ package dao;
 
 import pojo.Question;
 
+import java.util.List;
+
 public interface LeetcodeDao {
-    Question getAllQuertionList();
+    List<Question> getAllQuertionList();
 }

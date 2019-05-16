@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.LeetcodeDao">
+
+    <resultMap id="QuestionResultMap" type="pojo.Question" >
+        <id column="id" property="id"  />
+        <result column="qname" property="qname" />
+        <result column="Qcontent" property="Qcontent" />
+        <result column="inNum" property="inNum" />
+        <result column="inType" property="inType" />
+        <result column="outNum" property="outNum" />
+        <result column="outType" property="outType" />
+        <result column="answerfile" property="answerfile" />
+
+    </resultMap>
+
+    <select id="getAllQuertionList"   resultMap="QuestionResultMap">
+        select * from t_Question;
+    </select>
+
+</mapper>
