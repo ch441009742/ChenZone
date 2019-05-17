@@ -45,5 +45,13 @@ public class ActionLeetcode {
         jsonObject.put("quertions",allQuertionList);
         return allQuertionList;
     }
+
+    @RequestMapping(value="/add",method = RequestMethod.GET)
+    public @ResponseBody Question addQuestion(HttpServletRequest request, HttpServletResponse response){
+
+        Question question=new Question();
+
+        return question;
+    }
 }
 

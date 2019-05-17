@@ -1,8 +1,59 @@
 import React from 'react'
 import { List, Card } from 'antd';
-import { Modal, Button, Icon } from 'antd';
+import { Modal, Button, Icon, Form, Input, Radio } from 'antd';
 
 
+class AddForm extends React.Component {
+    render() {
+        const { visible, onCancel, onOk, form } = this.props;
+        const { getFieldDecorator } = form;
+        return (
+            <div>
+                <Modal
+                    title="Basic Modal"
+                    visible={visible}
+                    onOk={onOk}
+                    onCancel={onCancel}
+                >
+                    <Form layout="vertical">
+                        <Form.Item label="问题名称">
+                            {getFieldDecorator('Qname', {
+                                rules: [{ required: true, message: '请输入!' }],
+                            })(<Input />)}
+                        </Form.Item>
+                        <Form.Item label="详细描述">
+                            {getFieldDecorator('Qcontent', {
+                                rules: [{ required: true, message: '请输入!' }],
+                            })(<Input type="textarea" />)}
+                        </Form.Item>
+                        <Form.Item label="输入参数个数">
+                            {getFieldDecorator('inNum', {
+                                rules: [{ required: true, message: '请输入!' }],
+                            })(<Input />)}
+                        </Form.Item>
+                        <Form.Item label="输入参数类型">
+                            {getFieldDecorator('inType', {
+                                rules: [{ required: true, message: '请输入!' }],
+                            })(<Input />)}
+                        </Form.Item>
+                        <Form.Item label="输出参数个数">
+                            {getFieldDecorator('outNum', {
+                                rules: [{ required: true, message: '请输入!' }],
+                            })(<Input />)}
+                        </Form.Item>
+                        <Form.Item label="输出参数类型">
+                            {getFieldDecorator('outType', {
+                                rules: [{ required: true, message: '请输入!' }],
+                            })(<Input />)}
+                        </Form.Item>
+                    </Form>
+                </Modal>
+            </div>
+        )
+    }
+}
+
+const QuForm = Form.create({ name: 'register' })(AddForm);
 
 class Leetcode extends React.Component {
 
@@ -38,13 +89,41 @@ class Leetcode extends React.Component {
     }
 
     showDialog() {
-        alert("1111");
+        this.setState({
+            addQue: true
+        })
     }
+
+    closeDialog() {
+        this.setState({
+            addQue: false
+        })
+    }
+    addQuestions(e) {
+        const form = this.formRef.props.form;
+        form.validateFields((err, values) => {
+            if (err) {
+                return;
+            }
+
+            console.log('Received values of form: ', values);
+            form.resetFields();
+            this.setState({ addQue: false });
+        });
+
+
+
+    }
+    saveFormRef(formRef) {
+        this.formRef = formRef;
+    }
+
+    close
     render() {
         var datas = this.state.data;
         return (
             <div>
-                <Icon type="plus-circle" theme="twoTone" style={{ fontSize: '60px' }} onClick={() => alert("111")} />
+                <Icon type="plus-circle" theme="twoTone" style={{ fontSize: '60px' }} onClick={this.showDialog.bind(this)} />
                 <List
                     grid={{ gutter: 16, column: 4 }}
                     dataSource={datas}
@@ -57,6 +136,17 @@ class Leetcode extends React.Component {
                         </List.Item>
                     )}
                 />
+
+                {/*弹出框添加问题*/}
+                <QuForm
+                    wrappedComponentRef={this.saveFormRef.bind(this)}
+                    visible={this.state.addQue}
+
+                    onOk={this.addQuestions.bind(this)}
+                    onCancel={this.closeDialog.bind(this)}
+
+                />
+
             </div>
 
         )
