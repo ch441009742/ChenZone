@@ -13,9 +13,9 @@ public class Service_UserImpl implements Service_User {
     @Autowired
     private UserDao userDao;
 
-    @Override
+   /* @Override
     public boolean login(User user) {
-        return false;
+        return userDao.login(user);
     }
 
     @Override
@@ -28,5 +28,5 @@ public class Service_UserImpl implements Service_User {
     public User[] checkPhoneNum(User user) {
         User[] us=userDao.checkPhoneNum(user);
         return us;
-    }
+    }*/
 }

@@ -3,7 +3,7 @@ package service;
 import pojo.User;
 
 public interface Service_User {
-    boolean login(User user);
+   /* boolean login(User user);
     boolean regis(User user);
-    User[] checkPhoneNum(User user);
+    User[] checkPhoneNum(User user);*/
 }

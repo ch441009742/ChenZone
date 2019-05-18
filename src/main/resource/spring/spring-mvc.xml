@@ -10,13 +10,11 @@
     <!-- 扫描controller -->
     <context:component-scan base-package="controller" />
 
-    <!-- Spring 来扫描指定包下的类，并注册被@Component，@Controller，@Service，@Repository等注解标记的组件 -->
     <mvc:annotation-driven />
-
-    <!-- 配置SpringMVC的视图解析器-->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/login/" />
-        <property name="suffix" value=".jsp" />
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".html" />
     </bean>
+    <mvc:resources mapping="/**" location="/WEB-INF/chenzone/"/>
 </beans>

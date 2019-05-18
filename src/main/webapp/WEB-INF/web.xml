@@ -18,6 +18,18 @@
       classpath*:spring/spring-*.xml
     </param-value>
   </context-param>
+
+
+  <!-- TestFilter-->
+  <filter>
+    <filter-name>testfilter</filter-name>
+    <filter-class>filter.TestLogFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>testfilter</filter-name>
+    <url-pattern>/</url-pattern>
+  </filter-mapping>
+
   <!-- 过滤通过用于处理项目中的乱码问题，该过滤器位于org.springframework.web.filter包中，指向类CharacterEncodingFilter -->
   <filter>
     <description>字符集过滤器</description>
@@ -61,6 +73,23 @@
 	6、渲染具体的视图等；
 	7、如果执行过程中遇到异常将交给HandlerExceptionResolver来解析。
    -->
+  <!--
+  <servlet>
+    <description>spring mvc servlet</description>
+    <servlet-name>springMvc-interface</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <description>spring mvc 配置文件</description>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring/spring-mvc-interface.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springMvc-interface</servlet-name>
+    <url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+-->
   <servlet>
     <description>spring mvc servlet</description>
     <servlet-name>springMvc</servlet-name>
@@ -74,8 +103,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springMvc</servlet-name>
-    <url-pattern>*.action</url-pattern>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
+
   <!--
 		  Session是由浏览器和服务器之间维护的。
 		  Session超时理解为：浏览器和服务器之间创建了一个Session，由于客户端长时间（休眠时间）没有与服务器交互，
@@ -86,7 +116,7 @@
   </session-config>
 
   <welcome-file-list>
-    <welcome-file>/register/register.html</welcome-file>
+    <welcome-file>/index.html</welcome-file>
   </welcome-file-list>
 </web-app>
 

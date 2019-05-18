@@ -1,20 +1,25 @@
 package pojo;
 
+import java.util.Date;
+
 public class User {
     private int id;
+    //账号
     private String username;
+    //密码
     private String password;
+    //邮箱
     private String email;
+    //手机号
     private String phoneNum;
+    //昵称
     private String nickName;
-
-    public String getNickName() {
-        return nickName;
-    }
-
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
+    //注册日期
+    private Date reginsDate;
+    //生日
+    private Date birthday;
+    //权限
+    private int role;
 
     public int getId() {
         return id;
@@ -56,15 +61,35 @@ public class User {
         this.phoneNum = phoneNum;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
-                ", nickName='" + nickName + '\'' +
-                '}';
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public Date getReginsDate() {
+        return reginsDate;
+    }
+
+    public void setReginsDate(Date reginsDate) {
+        this.reginsDate = reginsDate;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 }
