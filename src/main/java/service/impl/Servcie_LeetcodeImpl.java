@@ -19,4 +19,10 @@ public class Servcie_LeetcodeImpl implements Service_Leetcode {
     public List<Question> getAllQuertionList() {
         return LeetcodeDao.getAllQuertionList();
     }
+
+    @Override
+    public int addQuertion(Question question) {
+        return LeetcodeDao.addQuertion(question);
+
+    }
 }
