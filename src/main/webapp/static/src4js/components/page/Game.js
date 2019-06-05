@@ -2,12 +2,12 @@ import React from 'react'
 import { Button, Icon, List } from 'antd';
 
 
-const arr = [[false, false, false, true, true, true,],
-[true, true, true, true, true, true,],
-[true, true, true, true, true, true,],
-[true, true, true, true, true, true,],
-[true, true, true, true, true, true,],
-[true, true, true, true, true, true,]]
+const arr = [[false, true, false, false, true, true,],
+[false, false, true, true, false, false,],
+[false, true, true, true, false, true,],
+[true, false, true, true, true, true,],
+[false, true, true, false, false, false,],
+[false, false, false, true, false, false,]]
 
 const dd = [[1, 2, 3, 4, 5, 6,],
 [7, 8, 9, 10, 11, 12,],
