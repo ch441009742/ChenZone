@@ -15,6 +15,8 @@ import Void from './page/Void'
 import Regin from './page/Regin'
 import Leetcode from './page/Leetcode'
 import Game from './page/Game'
+import Util from './page/Util'
+import sqlformat from './util/Sqlformat'
 
 
 class Root extends React.Component {
@@ -37,6 +39,8 @@ class Root extends React.Component {
           <Route path="/regin" component={Regin} />
           <Route path="/leetcode" component={Leetcode} />
           <Route path="/game" component={Game} />
+          <Route path="/util" component={Util} >
+          </Route>
 
 
         </HashRouter>
