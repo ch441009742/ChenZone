@@ -14,6 +14,9 @@ class Index4l extends React.Component {
     render() {
 
         return (
+        <div>
+        
+       
             <Layout className="layout">
                 <Header>
                     <Menu
@@ -29,12 +32,13 @@ class Index4l extends React.Component {
                         <Menu.Item key="5"><Link to="/regin"><h2 style={{ color: '#fff' }}>regin</h2></Link></Menu.Item>
                         <Menu.Item key="6"><Link to="/leetcode"><h2 style={{ color: '#fff' }}>leetcode</h2></Link></Menu.Item>
                         <Menu.Item key="7"><Link to="/game"><h2 style={{ color: '#fff' }}>game</h2></Link></Menu.Item>
+                        <Menu.Item key="8"><Link to="/util"><h2 style={{ color: '#fff' }}>util</h2></Link></Menu.Item>
                     </Menu>
                 </Header>
                 {this.props.children}
             </Layout>
-
-
+    <h1>哈哈哈哈哈</h1>
+ </div>
         )
     }
 }
