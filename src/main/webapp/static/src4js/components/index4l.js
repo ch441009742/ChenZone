@@ -28,6 +28,7 @@ class Index4l extends React.Component {
                         <Menu.Item key="4"><Link to="/void"><h2 style={{ color: '#fff' }}>void</h2></Link></Menu.Item>
                         <Menu.Item key="5"><Link to="/regin"><h2 style={{ color: '#fff' }}>regin</h2></Link></Menu.Item>
                         <Menu.Item key="6"><Link to="/leetcode"><h2 style={{ color: '#fff' }}>leetcode</h2></Link></Menu.Item>
+                        <Menu.Item key="7"><Link to="/game"><h2 style={{ color: '#fff' }}>game</h2></Link></Menu.Item>
                     </Menu>
                 </Header>
                 {this.props.children}

@@ -14,6 +14,7 @@ import Note from './page/Note'
 import Void from './page/Void'
 import Regin from './page/Regin'
 import Leetcode from './page/Leetcode'
+import Game from './page/Game'
 
 
 class Root extends React.Component {
@@ -35,6 +36,7 @@ class Root extends React.Component {
           <Route path="/void" component={Void} />
           <Route path="/regin" component={Regin} />
           <Route path="/leetcode" component={Leetcode} />
+          <Route path="/game" component={Game} />
 
 
         </HashRouter>

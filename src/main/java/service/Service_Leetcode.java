@@ -3,7 +3,9 @@ package service;
 import org.springframework.stereotype.Component;
 import pojo.Question;
 
+import java.util.List;
+
 @Component
 public interface Service_Leetcode {
-    public Question getAllQuertionList();
+    public List<Question> getAllQuertionList();
 }

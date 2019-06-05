@@ -1,10 +1,20 @@
 package pojo;
 
 public class Question {
+    private int id;
     private String Qname;
     private String Qcontent;
     private String inNum;
     private String inType;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String outNum;
     private String outType;
     private String answerfile;
