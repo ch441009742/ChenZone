@@ -20,4 +20,8 @@
         select * from t_Question;
     </select>
 
+    <insert id="addQuertion"   parameterType="pojo.Question" >
+        insert into t_Question (qname,qcontent,innum,intype,outnum,outtype) values(#{qname},#{qcontent},#{inNum},#{inType},#{outNum},#{outType})
+    </insert>
+
 </mapper>

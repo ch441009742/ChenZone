@@ -17,12 +17,12 @@ class AddForm extends React.Component {
                 >
                     <Form layout="vertical">
                         <Form.Item label="问题名称">
-                            {getFieldDecorator('Qname', {
+                            {getFieldDecorator('qname', {
                                 rules: [{ required: true, message: '请输入!' }],
                             })(<Input />)}
                         </Form.Item>
                         <Form.Item label="详细描述">
-                            {getFieldDecorator('Qcontent', {
+                            {getFieldDecorator('qcontent', {
                                 rules: [{ required: true, message: '请输入!' }],
                             })(<Input type="textarea" />)}
                         </Form.Item>
@@ -106,7 +106,24 @@ class Leetcode extends React.Component {
                 return;
             }
 
-            console.log('Received values of form: ', values);
+            //console.log('Received values of form: ', values);
+            //console.log(JSON.stringify("question:" + JSON.stringify(values)));
+            //console.log(JSON.stringify(values));
+            fetch("/leetcode/add",
+                {
+                    method: 'POST',
+                    body: JSON.stringify(values),
+                    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+                    //credentials: 'include',
+                }
+            ).then(function (response) {
+                return response.json();
+            }).then(function (myJson) {
+                _this.setState(state => ({
+                    data: myJson
+                }))
+            })
+
             form.resetFields();
             this.setState({ addQue: false });
         });
@@ -117,8 +134,6 @@ class Leetcode extends React.Component {
     saveFormRef(formRef) {
         this.formRef = formRef;
     }
-
-    close
     render() {
         var datas = this.state.data;
         return (
