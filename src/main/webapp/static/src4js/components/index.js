@@ -23,7 +23,7 @@ class Root extends React.Component {
   render() {
     const page = this.props.children;
     return (
-      <div>
+      <div >
 
         <HashRouter>
           {/*<Route path="/" component={index4l} />

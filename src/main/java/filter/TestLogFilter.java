@@ -17,7 +17,7 @@ public class TestLogFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        logger.info("----test----filter");
+        //logger.info("----test----filter");
         filterChain.doFilter(servletRequest,servletResponse);
     }
 
