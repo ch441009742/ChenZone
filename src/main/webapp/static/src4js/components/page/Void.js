@@ -1,15 +1,28 @@
 
-import React from "react";
-import ReactDOM from "react-dom";
-import { Row, Col } from 'antd';
+import React from "react"
+import { Player } from "video-react"
+import 'video-react/dist/video-react.css'
 
-import { Router, Route, Link, IndexRoute } from 'react-router-dom'
 
 class Void extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputVideoUrl: './1.mp4'
+        };
+    }
     render() {
         return (
             <div>
-                <h1>Void~~~~~~~</h1>
+                <div>{this.state.inputVideoUrl}</div>
+
+
+                <Player>
+
+                    <source src={this.state.inputVideoUrl} />
+
+                </Player>
+                {/* */}
             </div>
         )
     }
