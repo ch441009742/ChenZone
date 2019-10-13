@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Card } from 'antd';
+import { List, Card, Row, Col } from 'antd';
 import { Modal, Button, Icon, Form, Input, Radio } from 'antd';
 
 
@@ -66,7 +66,8 @@ class Leetcode extends React.Component {
     }
 
 
-    componentDidMount() {
+
+    getQueList() {
         var _this = this;
 
         fetch("/leetcode/list",
@@ -83,9 +84,14 @@ class Leetcode extends React.Component {
                 data: myJson
             }))
         })
+    }
 
+    componentDidMount() {
+        this.getQueList();
+    }
 
-
+    componentDidUpdate() {
+        this.getQueList();
     }
 
     showDialog() {
@@ -119,9 +125,9 @@ class Leetcode extends React.Component {
             ).then(function (response) {
                 return response.json();
             }).then(function (myJson) {
-                _this.setState(state => ({
-                    data: myJson
-                }))
+                //  _this.setState(state => ({
+                //      data: myJson
+                //  }))
             })
 
             form.resetFields();
@@ -139,16 +145,27 @@ class Leetcode extends React.Component {
         return (
             <div>
                 <Icon type="plus-circle" theme="twoTone" style={{ fontSize: '60px' }} onClick={this.showDialog.bind(this)} />
+
                 <List
-                    grid={{ gutter: 16, column: 4 }}
+                    grid={{
+                        xs: 1,
+                        sm: 2,
+                        md: 4,
+                        lg: 4,
+                        xl: 6,
+                        xxl: 3,
+                    }}
                     dataSource={datas}
                     renderItem={item => (
-                        <List.Item>
+
+                        <List.Item >
                             <Card title={item.qname}
+                                type="inner"
                                 actions={[<Icon type="edit" onClick={() => console.log("item", item)} />]}>
                                 {item.qcontent}
                             </Card>
                         </List.Item>
+
                     )}
                 />
 

@@ -37,7 +37,6 @@ class Index4l extends React.Component {
                 </Header>
                 {this.props.children}
             </Layout>
-    <h1>哈哈哈哈哈</h1>
  </div>
         )
     }
