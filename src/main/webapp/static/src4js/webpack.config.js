@@ -3,11 +3,12 @@ const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',     //生成map
+    devtool: 'false',     //生成map
     entry: './components/index.js', //入口文件
+    //entry: './components/cloudstore/install.js',
     output: {
         //node.js中__dirname变量获取当前模块文件所在目录的完整绝对路径
-        // path: path.resolve(__dirname, '../dist'), //输出位置
+        //path: path.resolve(__dirname, '../dist'), //输出位置
         path: path.resolve(__dirname, '../../WEB-INF/chenzone'), //输出位置
         filename: 'build.js' //输出文件
     },

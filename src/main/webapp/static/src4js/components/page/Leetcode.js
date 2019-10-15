@@ -1,6 +1,6 @@
 import React from 'react'
-import { List, Card, Row, Col } from 'antd';
-import { Modal, Button, Icon, Form, Input, Radio } from 'antd';
+import { List, Card } from 'antd';
+import { Modal, Icon, Form, Input } from 'antd';
 
 
 class AddForm extends React.Component {
@@ -86,12 +86,12 @@ class Leetcode extends React.Component {
         })
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getQueList();
     }
 
     componentDidUpdate() {
-        this.getQueList();
+        //this.getQueList();
     }
 
     showDialog() {

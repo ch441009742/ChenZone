@@ -1,9 +1,7 @@
 import React from 'react'
-import { Router, Route, Link, IndexRoute } from 'react-router-dom'
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Link } from 'react-router-dom'
+import { Menu } from 'antd';
 
-import Home from './Home'
-import Test from './test'
 class Root extends React.Component {
 
     render() {
