@@ -1,6 +1,6 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { Router, Route, Link, IndexRoute } from 'react-router-dom'
+import { Layout, Menu } from 'antd';
+import { Link } from 'react-router-dom'
 
 import Demo from '../page/Demo'
 import Note from '../page/Note'

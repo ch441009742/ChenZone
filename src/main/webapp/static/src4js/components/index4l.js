@@ -1,6 +1,7 @@
 import React from 'react'
 import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom'
+import Home from './page/Home'
 
 const { Header, Content, Footer } = Layout;
 
@@ -35,7 +36,8 @@ class Index4l extends React.Component {
                             <Menu.Item key="9"><Link to="/file"><h2 style={{ color: '#fff' }}>file</h2></Link></Menu.Item>
                         </Menu>
                     </Header>
-                    {this.props.children}
+
+
                 </Layout>
             </div>
         )

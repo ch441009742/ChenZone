@@ -86,12 +86,12 @@ class Leetcode extends React.Component {
         })
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.getQueList();
     }
 
     componentDidUpdate() {
-        this.getQueList();
+        //this.getQueList();
     }
 
     showDialog() {

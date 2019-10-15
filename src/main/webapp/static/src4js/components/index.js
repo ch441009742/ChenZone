@@ -7,7 +7,7 @@ import { HashRouter, Route } from "react-router-dom"
 
 
 
-import index4l from './index4l'
+import Index4l from './index4l'
 import Home from './page/Home'
 import Demo from './page/Demo'
 import Note from './page/Note'
@@ -27,8 +27,8 @@ class Root extends React.Component {
       <div >
 
         <HashRouter>
-          <Route path="/" component={index4l} />
-          <Route path="/home" component={Home} />
+          <Route path="/" render={() => <div><Index4l /></div>} />
+          <Route path="/home" render={() => <div><Home /></div>} />
           <Route path="/demo" component={Demo} />
           <Route path="/note" component={Note} />
           <Route path="/void" component={Void} />
