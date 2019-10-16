@@ -5,7 +5,7 @@ class Note extends React.Component {
     render() {
         return (
             <div>
-                <h1>NOTE~~~~~~~</h1>
+                <h1>NOTE~~~~1~~~</h1>
             </div>
         )
     }

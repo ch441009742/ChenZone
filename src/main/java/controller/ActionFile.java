@@ -1,16 +1,21 @@
 package controller;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import pojo.Question;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @RequestMapping("/file")
 @Controller
@@ -34,6 +39,40 @@ public class ActionFile {
         }
         return l;
     }
+    @RequestMapping(value="/upload",produces="text/html;charset=utf-8",method = RequestMethod.POST)
+    public @ResponseBody
+    String  upload(@RequestParam("file1") MultipartFile file1, HttpServletRequest request){
+        Map<String,Object> map= new HashMap<String,Object>();
+        if(file1.isEmpty()){
+            map.put( "result", "error");
+            map.put( "msg", "上传文件不能为空" );
+        } else{
+            String originalFilename=file1.getOriginalFilename();
+            String fileBaseName=FilenameUtils.getBaseName(originalFilename);
+            Date now = new Date();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String floderName=fileBaseName+"_" +df.format(now);
+            try{
+                //创建要上传的路径
+                File fdir = new File(request.getSession().getServletContext().getRealPath("/WEB-INF/chenzone/movie"));
+                if (!fdir.exists()) {
+                    fdir.mkdirs();
+                }
+                //文件上传到路径下
+                FileUtils. copyInputStreamToFile(file1.getInputStream(), new File(fdir,originalFilename));
+                //coding
+                map.put( "result", "success");
+
+            } catch (Exception e) {
+                map.put( "result", "error");
+                map.put( "msg",e.getMessage());
+
+            }
+        }
+        return map.toString();
+
+    }
+
 
 
     public String getFileURLpath(String path,String rootpath){

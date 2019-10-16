@@ -1,5 +1,7 @@
 import React from 'react'
 import { List, Avatar } from 'antd';
+import { Upload, message, Button, Icon } from 'antd';
+
 
 
 const data = [
@@ -16,6 +18,23 @@ const data = [
         title: 'Ant Design Title 4',
     },
 ];
+const upload = {
+  name: 'file1',
+  action: '/file/upload',
+//  headers: {
+//    authorization: 'authorization-text',
+//  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
+};
 class File extends React.Component {
     constructor(props) {
         super(props);
@@ -23,6 +42,9 @@ class File extends React.Component {
             data: ''
         };
     }
+
+
+    
     componentWillMount() {
         this.getFileList();
     }
@@ -48,6 +70,11 @@ class File extends React.Component {
     render() {
         return (
             <div>
+                <Upload {...upload}>
+                    <Button>
+                        <Icon type="upload" /> Click to Upload
+                    </Button>
+                </Upload>
                 <List
                     itemLayout="horizontal"
                     dataSource={this.state.data}
