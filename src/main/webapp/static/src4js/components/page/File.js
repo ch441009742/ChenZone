@@ -19,21 +19,22 @@ const data = [
     },
 ];
 const upload = {
-  name: 'file1',
-  action: '/file/upload',
-//  headers: {
-//    authorization: 'authorization-text',
-//  },
-  onChange(info) {
-    if (info.file.status !== 'uploading') {
-      console.log(info.file, info.fileList);
-    }
-    if (info.file.status === 'done') {
-      message.success(`${info.file.name} file uploaded successfully`);
-    } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
+    name: 'file1',
+    action: '/file/upload',
+    //  headers: {
+    //    authorization: 'authorization-text',
+    //  },
+    onChange(info) {
+        if (info.file.status !== 'uploading') {
+            console.log(info.file, info.fileList);
+        }
+        if (info.file.status === 'done') {
+            message.success(`${info.file.name} file uploaded successfully`);
+            File.getFileList();
+        } else if (info.file.status === 'error') {
+            message.error(`${info.file.name} file upload failed.`);
+        }
+    },
 };
 class File extends React.Component {
     constructor(props) {
@@ -41,17 +42,16 @@ class File extends React.Component {
         this.state = {
             data: ''
         };
+        File.getFileList = this.getFileList.bind(this);
     }
 
 
-    
+
     componentWillMount() {
         this.getFileList();
     }
-    componentDidUpdate() {
-        console.log("1");
-        //this.getFileList();
-    }
+
+
 
     getFileList() {
         var _this = this;
@@ -66,6 +66,7 @@ class File extends React.Component {
             }))
         })
     }
+
 
     render() {
         return (

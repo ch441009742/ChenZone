@@ -15,8 +15,6 @@ class Index4l extends React.Component {
 
         return (
             <div>
-
-
                 <Layout className="layout">
                     <Header>
                         <Menu

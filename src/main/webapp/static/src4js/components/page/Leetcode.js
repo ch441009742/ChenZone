@@ -90,9 +90,6 @@ class Leetcode extends React.Component {
         this.getQueList();
     }
 
-    componentDidUpdate() {
-        //this.getQueList();
-    }
 
     showDialog() {
         this.setState({
@@ -111,10 +108,6 @@ class Leetcode extends React.Component {
             if (err) {
                 return;
             }
-
-            //console.log('Received values of form: ', values);
-            //console.log(JSON.stringify("question:" + JSON.stringify(values)));
-            //console.log(JSON.stringify(values));
             fetch("/leetcode/add",
                 {
                     method: 'POST',
@@ -132,10 +125,8 @@ class Leetcode extends React.Component {
 
             form.resetFields();
             this.setState({ addQue: false });
+            this.getQueList();
         });
-
-
-
     }
     saveFormRef(formRef) {
         this.formRef = formRef;
