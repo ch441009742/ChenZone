@@ -3,10 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { HashRouter, Route } from "react-router-dom"
 
-
-
-
-
 import Index4l from './index4l'
 import Home from './page/Home'
 import Demo from './page/Demo'
@@ -21,27 +17,56 @@ import File from './page/File'
 
 
 class Root extends React.Component {
+
+
   render() {
-    const page = this.props.children;
+    {/*
+
+ 
+    const BRoute = ({ to, ...rest }) => (
+      <Route path={to} children={({ match }) => (
+        <li className={match ? 'active' : ''}>
+          <Link to={to}{...rest} />
+        </li>
+      )} />
+    )
+*/}
+    const divStyle = {
+      Width: '100%',
+      paddingTop: '20px',
+      backgroundColor: '#c4c4c4',
+      marginLeft: '80px'
+    }
+    const DStyle = {
+      backgroundColor: '#c4c4c4',
+      height: '1000px'
+    }
+    const BRoute = ({ path: path, component: Component }) => (
+      <Route path={path} render={() => (
+        <div style={divStyle}>
+          <Component />
+        </div>
+      )
+
+      } />
+    )
+
     return (
-      <div >
+      <div style={DStyle}>
 
         <HashRouter>
-          <Route path="/" render={() => <div><Index4l /></div>} />
-          <Route path="/home" render={() => <div><Home /></div>} />
-          <Route path="/demo" component={Demo} />
-          <Route path="/note" component={Note} />
-          <Route path="/void" component={Void} />
-          <Route path="/regin" component={Regin} />
-          <Route path="/leetcode" component={Leetcode} />
-          <Route path="/game" component={Game} />
-          <Route path="/util" component={Util} />
-          <Route path="/file" component={File} />
-
-
-
+          <Index4l />
+          <BRoute path="/home" component={Home} />
+          <BRoute path="/demo" component={Demo} />
+          <BRoute path="/note" component={Note} />
+          <BRoute path="/void" component={Void} />
+          <BRoute path="/regin" component={Regin} />
+          <BRoute path="/leetcode" component={Leetcode} />
+          <BRoute path="/game" component={Game} />
+          <BRoute path="/util" component={Util} />
+          <BRoute path="/file" component={File} />
         </HashRouter>
-        {/*  
+        {/*
         <Footer style={{ textAlign: 'center' }}>
                   Ccz ©2018 Created by Ant UED
                 </Footer>

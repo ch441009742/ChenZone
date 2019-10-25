@@ -7,6 +7,7 @@ class AddForm extends React.Component {
     render() {
         const { visible, onCancel, onOk, form } = this.props;
         const { getFieldDecorator } = form;
+
         return (
             <div>
                 <Modal
@@ -55,6 +56,25 @@ class AddForm extends React.Component {
 
 const QuForm = Form.create({ name: 'register' })(AddForm);
 
+const staticdata = [
+    {
+        qname: "title1",
+        qcontent: "qcontensdaaaaaadddddddddddddddddddddt11111"
+    },
+    {
+        qname: "title2",
+        qcontent: "qcontent22222asdsadasdddddddddddddddddddddddddasdasddddddddassssssssssssssssssssssssssssssssssssssssssssssss"
+    },
+    {
+        qname: "title3",
+        qcontent: "qcontent333asdddddddddddddddddddddddddd33"
+    },
+    {
+        qname: "title4",
+        qcontent: "qcontent44444"
+    },
+]
+
 class Leetcode extends React.Component {
 
     constructor(props) {
@@ -82,6 +102,10 @@ class Leetcode extends React.Component {
         }).then(function (myJson) {
             _this.setState(state => ({
                 data: myJson
+            }))
+        }).catch((error) => {
+            _this.setState(state => ({
+                data: staticdata
             }))
         })
     }
