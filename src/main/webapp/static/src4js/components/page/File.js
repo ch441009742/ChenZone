@@ -1,29 +1,23 @@
 import React from 'react'
 import { List, Avatar } from 'antd';
-import { Upload, message, Button, Icon,Modal } from 'antd';
+import { Upload, message, Button, Icon } from 'antd';
 
 
 
-
-
-const staticdata=[
-
-    {   
-        filepath:"/asdasdsa/assa",
-        filename:"接口报错.txt"
+const data = [
+    {
+        title: 'Ant Design Title 1',
     },
-    {   
-        filepath:"/sss/dddd",
-        filename:"/file/upload接口报错.txt"
+    {
+        title: 'Ant Design Title 2',
     },
-]
-   
-        
-    
-    
-    
-
-
+    {
+        title: 'Ant Design Title 3',
+    },
+    {
+        title: 'Ant Design Title 4',
+    },
+];
 const upload = {
   name: 'file1',
   action: '/file/upload',
@@ -41,25 +35,22 @@ const upload = {
     }
   },
 };
-
-
 class File extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: '',
-            visible: false ,
-            deleteFilePath:''
+            data: ''
         };
     }
 
 
-  
+    
     componentWillMount() {
         this.getFileList();
     }
     componentDidUpdate() {
- 
+        console.log("1");
+        //this.getFileList();
     }
 
     getFileList() {
@@ -73,91 +64,28 @@ class File extends React.Component {
             _this.setState(state => ({
                 data: myJson
             }))
-        }).catch(function(error){
-             _this.setState(state => ({
-                 data: staticdata
-             }))
-             
-        })
-    }
-    openDeleteFileModel(filepath){
-        this.setState({
-            visible: true,
-            deleteFilePath:filepath
-        })
-    }
-    handleCancel(){
-        this.setState({
-            visible: false,
-            deleteFilePath:''
-        })
-      
-    }
-    handleOk(){
-        var _this=this;
-        
-        fetch("/file/deletefile",{
-            method: 'POST',
-            body:"filepath="+_this.state.deleteFilePath,
-            //JSON.stringify({filepath:"111111"}) ,
-            //这个头很重要！！！
-            headers: {
-        　　    "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-            }
-         
-        }
-
-        ).then(function (response) {
-            return response.json();
-        }).then(function (myJson) {
-            if(myJson.flag){
-                alert("删除成功!");
-            }else{
-                alert("删除失败!")
-            }
-            _this.setState({
-                visible: false,
-            })
-        }).catch(function(error){
-            
-            _this.setState({
-                visible: false,
-            })
-            alert("接口/file/deletefile报错")
         })
     }
 
     render() {
         return (
             <div>
-                <Upload {...upload} >
+                <Upload {...upload}>
                     <Button>
-                        <Icon type="upload" /> 点击上传文件
+                        <Icon type="upload" /> Click to Upload
                     </Button>
                 </Upload>
                 <List
                     itemLayout="horizontal"
                     dataSource={this.state.data}
                     renderItem={item => (
-                        <List.Item
-                            actions={[<a key="list-loadmore-edit" onClick={()=>this.openDeleteFileModel(item.filepath)}><Icon type="close" /></a>]}    
-                        >
+                        <List.Item>
                             <List.Item.Meta
                                 title={<a target="_blank" href={item.filepath}>{item.filename}</a>}
                             />
                         </List.Item>
                     )}
                 />
-                <Modal
-                    title="警告"
-                    visible={this.state.visible}
-                    onCancel={this.handleCancel.bind(this)}
-                    onOk={this.handleOk.bind(this)}
-                    cancelText="我再想想"
-                    okText="删除！"
-                    >
-                   <p>请确认是否要删除文件！</p>
-                </Modal>
             </div>
         )
     }

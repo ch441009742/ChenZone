@@ -12,11 +12,9 @@ class Index4l extends React.Component {
 
 
     render() {
-
+        console.log(this.props)
         return (
             <div>
-
-
                 <Layout className="layout">
                     <Header>
                         <Menu
@@ -25,6 +23,7 @@ class Index4l extends React.Component {
                             defaultSelectedKeys={['1']}
                             style={{ lineHeight: '50px' }}
                         >
+
                             <Menu.Item key="1"><Link to="/home"><h2 style={{ color: '#fff' }}>home</h2></Link></Menu.Item>
                             <Menu.Item key="2"><Link to="/note"><h2 style={{ color: '#fff' }}>note</h2></Link></Menu.Item>
                             <Menu.Item key="3"><Link to="/demo"><h2 style={{ color: '#fff' }}>demo</h2></Link></Menu.Item>
@@ -35,10 +34,12 @@ class Index4l extends React.Component {
                             <Menu.Item key="8"><Link to="/util"><h2 style={{ color: '#fff' }}>util</h2></Link></Menu.Item>
                             <Menu.Item key="9"><Link to="/file"><h2 style={{ color: '#fff' }}>file</h2></Link></Menu.Item>
                         </Menu>
+
                     </Header>
 
 
                 </Layout>
+
             </div>
         )
     }
