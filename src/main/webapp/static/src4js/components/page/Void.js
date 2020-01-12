@@ -8,7 +8,8 @@ class Void extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputVideoUrl: './1.mp4'
+            inputVideoUrl: './movie/Joker.mp4',
+            preload:'metadata'
         };
     }
     render() {
