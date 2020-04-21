@@ -8,13 +8,13 @@ class Void extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputVideoUrl: 'https://e-cloudstore.com/e9/video/video.mp4'
+            inputVideoUrl: './movie/Joker.mp4',
+            preload:'metadata'
         };
     }
     render() {
         return (
             <div>
-                <a href=''></a>
                 <div>{this.state.inputVideoUrl}</div>
 
 

@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import pojo.Question;
 
@@ -71,6 +68,19 @@ public class ActionFile {
         return map.toString();
 
     }
+
+    @RequestMapping(value="/deletefile",method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject  deletefile(HttpServletRequest request,@RequestParam("filepath") String filepath){
+        JSONObject jsonObject = new JSONObject();
+        File fdir = new File(request.getSession().getServletContext().getRealPath("/WEB-INF/chenzone"+filepath));
+        boolean delete = fdir.delete();
+        jsonObject.put("flag",delete);
+        return jsonObject;
+
+    }
+
+
 
     @RequestMapping(value="/downloadfile",produces="text/html;charset=utf-8",method = RequestMethod.POST)
     public @ResponseBody

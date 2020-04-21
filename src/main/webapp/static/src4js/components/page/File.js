@@ -5,23 +5,36 @@ const { Meta } = Card;
 
 
 
-const upload = {
-    name: 'file1',
-    action: '/file/upload',
-    //  headers: {
-    //    authorization: 'authorization-text',
-    //  },
-    onChange(info) {
-        if (info.file.status !== 'uploading') {
-            console.log(info.file, info.fileList);
-        }
-        if (info.file.status === 'done') {
-            message.success(`${info.file.name} file uploaded successfully`);
-            File.getFileList();
-        } else if (info.file.status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
-        }
+const data = [
+    {
+        title: 'Ant Design Title 1',
     },
+    {
+        title: 'Ant Design Title 2',
+    },
+    {
+        title: 'Ant Design Title 3',
+    },
+    {
+        title: 'Ant Design Title 4',
+    },
+];
+const upload = {
+  name: 'file1',
+  action: '/file/upload',
+//  headers: {
+//    authorization: 'authorization-text',
+//  },
+  onChange(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(`${info.file.name} file uploaded successfully`);
+    } else if (info.file.status === 'error') {
+      message.error(`${info.file.name} file upload failed.`);
+    }
+  },
 };
 
 const staticdata = [
@@ -65,7 +78,6 @@ class File extends React.Component {
         this.state = {
             data: ''
         };
-        File.getFileList = this.getFileList.bind(this);
     }
 
 
@@ -73,8 +85,10 @@ class File extends React.Component {
     componentWillMount() {
         this.getFileList();
     }
-
-
+    componentDidUpdate() {
+        console.log("1");
+        //this.getFileList();
+    }
 
     getFileList() {
         var _this = this;
