@@ -78,6 +78,7 @@ class File extends React.Component {
         this.state = {
             data: ''
         };
+        File.getFileList = this.getFileList.bind(this);
     }
 
 
