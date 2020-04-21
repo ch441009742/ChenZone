@@ -8,7 +8,7 @@ import service.Service_Leetcode;
 
 import java.util.List;
 
-@Service("Service_Leetcode")
+@Service("service_Leetcode")
 public class Servcie_LeetcodeImpl implements Service_Leetcode {
 
 

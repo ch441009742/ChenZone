@@ -13,6 +13,7 @@ class Note extends React.Component {
             <div>
                 <h1>笔记系列</h1>
                 <TextArea style={textStyle} rows={4} />
+                <h3></h3>
             </div>
         )
     }

@@ -21,6 +21,9 @@ class Util extends React.Component {
                         <TabPane tab="SQL执行" key="2">
                             <Sqlexecute />
                         </TabPane>
+                        <TabPane tab="JSON转换" key="3">
+                            <iframe height='1000px' width='1000px' src='https://www.json.cn' frameborder='0' />
+                        </TabPane>
                     </Tabs>
 
                 </Content>

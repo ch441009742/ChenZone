@@ -1,6 +1,7 @@
 import React from 'react'
 import { List, Avatar } from 'antd';
-import { Upload, message, Button, Icon } from 'antd';
+import { Upload, message, Button, Icon, Card } from 'antd';
+const { Meta } = Card;
 
 
 
@@ -22,6 +23,42 @@ const upload = {
         }
     },
 };
+
+const staticdata = [
+    {
+        filename: "title1",
+        filepath: "./img/1.png"
+    },
+    {
+        filename: "title2",
+        filepath: "./img/2.png"
+    },
+    {
+        filename: "title3",
+        filepath: "./img/3.png"
+    },
+    {
+        filename: "title4",
+        filepath: "./img/4.png"
+    },
+]
+
+function getfiletype(filepath) {
+    console.log("filepath", filepath);
+
+    var type = filepath.substr(filepath.lastIndexOf(".") + 1, filepath.length)
+    console.log("type", type);
+    if (type == "jpg" || type == "png" || type == "gif") {
+        return filepath
+    } else if (type == "mp4" || type == "avi") {
+        return "./img/movie.ico"
+    } else if (type == "mp3") {
+        return "./img/music.ico"
+    } else {
+        return "./img/file.ico"
+    }
+}
+
 class File extends React.Component {
     constructor(props) {
         super(props);
@@ -50,8 +87,13 @@ class File extends React.Component {
             _this.setState(state => ({
                 data: myJson
             }))
+        }).catch((error) => {
+            _this.setState(state => ({
+                data: staticdata
+            }))
         })
     }
+
 
 
     render() {
@@ -59,16 +101,36 @@ class File extends React.Component {
             <div>
                 <Upload {...upload}>
                     <Button>
-                        <Icon type="upload" /> Click to Upload
+                        <Icon type="upload" /> 点击上传文件
                     </Button>
                 </Upload>
+
                 <List
+                    grid={{
+                        gutter: 16,
+                        xs: 1,
+                        sm: 2,
+                        md: 4,
+                        lg: 4,
+                        xl: 6,
+                        xxl: 3,
+                    }}
                     itemLayout="horizontal"
                     dataSource={this.state.data}
                     renderItem={item => (
                         <List.Item>
                             <List.Item.Meta
-                                title={<a target="_blank" href={item.filepath}>{item.filename}</a>}
+                                title={
+                                    <div>
+                                        <Card
+                                            hoverable
+                                            style={{ width: 150 }}
+                                            cover={<img alt="example" src={getfiletype(item.filepath)} height='150px' width='150px' />}
+                                        >
+                                            <Meta title={item.filename} />
+                                        </Card>
+                                    </div>
+                                }
                             />
                         </List.Item>
                     )}

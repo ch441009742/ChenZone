@@ -18,7 +18,6 @@ class NormalLoginForm extends React.Component {
         e.preventDefault();
 
         this.props.form.validateFields((err, values) => {
-            console.log("values", values);
             if (!err) {
                 fetch('/user/login.action', {
                     method: 'POST',

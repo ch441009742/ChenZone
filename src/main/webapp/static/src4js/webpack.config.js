@@ -4,8 +4,9 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'false',     //生成map
-    entry: './components/index.js', //入口文件
+    //entry: './components/Test.js', //入口文件
     //entry: './components/cloudstore/install.js',
+    entry: './components/index.js',
     output: {
         //node.js中__dirname变量获取当前模块文件所在目录的完整绝对路径
         //path: path.resolve(__dirname, '../dist'), //输出位置

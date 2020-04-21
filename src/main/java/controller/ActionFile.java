@@ -61,8 +61,7 @@ public class ActionFile {
                 //文件上传到路径下
                 FileUtils. copyInputStreamToFile(file1.getInputStream(), new File(fdir,originalFilename));
                 //coding
-                map.put( "result", "success");
-
+                map.put("result","success");
             } catch (Exception e) {
                 map.put( "result", "error");
                 map.put( "msg",e.getMessage());
@@ -71,6 +70,13 @@ public class ActionFile {
         }
         return map.toString();
 
+    }
+
+    @RequestMapping(value="/downloadfile",produces="text/html;charset=utf-8",method = RequestMethod.POST)
+    public @ResponseBody
+    String  downloadFile(@RequestParam("file1") MultipartFile file1, HttpServletRequest request){
+
+        return "";
     }
 
 

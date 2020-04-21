@@ -12,7 +12,6 @@ class Index4l extends React.Component {
 
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <Layout className="layout">

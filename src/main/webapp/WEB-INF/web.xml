@@ -29,6 +29,15 @@
     <filter-name>testfilter</filter-name>
     <url-pattern>/</url-pattern>
   </filter-mapping>
+  <!-- TestFilter22222-->
+  <filter>
+    <filter-name>testfilter2</filter-name>
+    <filter-class>filter.TestFilter2</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>testfilter2</filter-name>
+    <url-pattern>/</url-pattern>
+  </filter-mapping>
 
   <!-- 过滤通过用于处理项目中的乱码问题，该过滤器位于org.springframework.web.filter包中，指向类CharacterEncodingFilter -->
   <filter>
@@ -105,6 +114,33 @@
     <servlet-name>springMvc</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
+
+<!-- TestServlet-->
+  <servlet>
+    <servlet-name>TestServlet2</servlet-name>
+    <servlet-class>servlet.TestServlet2</servlet-class>
+  <!--  <load-on-startup>1</load-on-startup>-->
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>TestServlet2</servlet-name>
+    <url-pattern>/test/2</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>servlet.TestServlet</servlet-class>
+   <!-- <load-on-startup>1</load-on-startup>-->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+
+
+
+
+
 
   <!--
 		  Session是由浏览器和服务器之间维护的。

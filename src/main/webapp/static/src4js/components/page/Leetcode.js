@@ -63,17 +63,24 @@ const staticdata = [
     },
     {
         qname: "title2",
-        qcontent: "qcontent22222asdsadasdddddddddddddddddddddddddasdasddddddddassssssssssssssssssssssssssssssssssssssssssssssss"
+        qcontent: "啊啊啊啊啊啊啊啊啊啊啊啊啊啊阿啊啊啊阿啊啊啊啊啊啊啊啊啊啊啊啊啊啊阿啊啊啊啊啊啊啊啊啊啊啊啊啊啊阿"
     },
     {
         qname: "title3",
-        qcontent: "qcontent333asdddddddddddddddddddddddddd33"
+        qcontent: "假设你正在爬楼梯。需要 n 阶你才能到达楼顶.每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？注意：给定 n 是一个正整数。"
     },
     {
         qname: "title4",
         qcontent: "qcontent44444"
     },
 ]
+
+const CardStyle = {
+    //backgroundColor: '#c4c4c4',
+    height: '60px'
+}
+
+
 
 class Leetcode extends React.Component {
 
@@ -163,6 +170,7 @@ class Leetcode extends React.Component {
 
                 <List
                     grid={{
+                        gutter: 20,
                         xs: 1,
                         sm: 2,
                         md: 4,
@@ -176,8 +184,12 @@ class Leetcode extends React.Component {
                         <List.Item >
                             <Card title={item.qname}
                                 type="inner"
+                                bodyStyle={CardStyle}
                                 actions={[<Icon type="edit" onClick={() => console.log("item", item)} />]}>
-                                {item.qcontent}
+                                <span >
+                                    {item.qcontent}
+                                </span>
+
                             </Card>
                         </List.Item>
 
