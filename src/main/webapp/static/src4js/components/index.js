@@ -15,7 +15,7 @@ import Leetcode from './page/Leetcode'
 import Game from './page/Game'
 import Util from './page/Util'
 import File from './page/File'
-import Rootm from './index-m'
+//import Rootm from './index-m'
 
 const { Option } = Select;
 
@@ -93,12 +93,7 @@ class Root extends React.Component {
 
     return (
       <div>
-        <Select defaultValue="PC" style={{ width: 120 }} onChange={this.handleChange.bind(this)}>
-          <Option value="mobile">mobile</Option>
-          <Option value="PC">PC</Option>
-        </Select>
-        {this.state.ismobile ? <Rootm /> :
-          <div style={DStyle}>
+   
 
 
             <HashRouter>
@@ -114,8 +109,8 @@ class Root extends React.Component {
               <BRoute path="/file" component={File} />
             </HashRouter>
           </div>
-        }
-      </div>
+        
+      
     )
   }
 }

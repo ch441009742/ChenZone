@@ -29,7 +29,7 @@
     <filter-name>testfilter</filter-name>
     <url-pattern>/</url-pattern>
   </filter-mapping>
-  <!-- TestFilter22222-->
+  <!-- TestFilter22222
   <filter>
     <filter-name>testfilter2</filter-name>
     <filter-class>filter.TestFilter2</filter-class>
@@ -38,7 +38,7 @@
     <filter-name>testfilter2</filter-name>
     <url-pattern>/</url-pattern>
   </filter-mapping>
-
+-->
   <!-- 过滤通过用于处理项目中的乱码问题，该过滤器位于org.springframework.web.filter包中，指向类CharacterEncodingFilter -->
   <filter>
     <description>字符集过滤器</description>
