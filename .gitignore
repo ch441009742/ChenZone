@@ -1,6 +1,7 @@
 .idea
 target
 ChenZone.iml
-/src/main/webapp/WEB-INF/chenzone/movie
-/src/main/webapp/static/src4js/.vscode
-/src/main/webapp/static/src4js/node_modules
+src/main/webapp/WEB-INF/chenzone/movie
+src/main/webapp/static/src4js/.vscode
+src/main/webapp/static/src4js/node_modules
+.DS_Store
