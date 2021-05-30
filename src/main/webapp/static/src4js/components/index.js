@@ -80,13 +80,20 @@ class Root extends React.Component {
       backgroundColor: '#c4c4c4',
       height: '1000px'
     }
-    const BRoute = ({ path: path, component: Component }) => (
-      <Route path={path} render={() => (
+    const BRoute = ({ path: path, component: Component,isExact }) => (
+      isExact?
+      <Route path={path} exact  render={() => (
         <div style={divStyle}>
           <Component />
         </div>
       )
-
+      } />
+      :
+      <Route path={path}  render={() => (
+        <div style={divStyle}>
+          <Component />
+        </div>
+      )
       } />
     )
 
@@ -98,6 +105,7 @@ class Root extends React.Component {
 
             <HashRouter>
               <Index4l />
+              <BRoute path="/" component={Home} isExact={true} />
               <BRoute path="/home" component={Home} />
               <BRoute path="/demo" component={Demo} />
               <BRoute path="/note" component={Note} />
