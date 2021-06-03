@@ -9,7 +9,7 @@ import Index4l from './index4l'
 import Home from './page/Home'
 import Demo from './page/Demo'
 import Note from './page/Note'
-import Void from './page/Void'
+import Video from './page/Video'
 import Regin from './page/Regin'
 import Leetcode from './page/Leetcode'
 import Game from './page/Game'
@@ -24,24 +24,27 @@ class Root extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      ismobile: false
-    };
+    //this.state = {
+    //  ismobile: false
+    //};
   }
 
   componentWillMount() {
     var userAgentInfo = navigator.userAgent.toLowerCase();
     var Agents = ["android", "iphone",
       "symbianos", "windows phone",
-      "ipad", "ipod"];
+      "ipad", "ipod","mobile"];
     var ly = document.referrer; //返回导航到当前网页的超链接所在网页的URL
-    for (var v = 0; v < Agents.length; v++) {
+    //this.handleChange(userAgentInfo)
+    //console.log(this.state.ismobile)
+   /* for (var v = 0; v < Agents.length; v++) {
       if (userAgentInfo.indexOf(Agents[v]) >= 0 && (ly == "" || ly == null)) {
         this.setState(state => ({
           ismobile: true
         }))
       }
     }
+    */
   }
   handleChange(value) {
     if (value.indexOf("mobile") > -1) {
@@ -53,7 +56,6 @@ class Root extends React.Component {
         ismobile: false
       }))
     }
-    console.log(value)
   }
 
 
@@ -109,7 +111,7 @@ class Root extends React.Component {
               <BRoute path="/home" component={Home} />
               <BRoute path="/demo" component={Demo} />
               <BRoute path="/note" component={Note} />
-              <BRoute path="/void" component={Void} />
+              <BRoute path="/video" component={Video} />
               <BRoute path="/regin" component={Regin} />
               <BRoute path="/leetcode" component={Leetcode} />
               <BRoute path="/game" component={Game} />

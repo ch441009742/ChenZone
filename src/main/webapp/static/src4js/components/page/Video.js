@@ -4,7 +4,7 @@ import { Player } from "video-react"
 import 'video-react/dist/video-react.css'
 
 
-class Void extends React.Component {
+class Video extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,4 +30,4 @@ class Void extends React.Component {
 }
 
 
-export default Void 
+export default Video 

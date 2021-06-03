@@ -26,7 +26,7 @@ class Index4l extends React.Component {
                             <Menu.Item key="1"><Link to="/home"><h2 style={{ color: '#fff' }}>home</h2></Link></Menu.Item>
                             <Menu.Item key="2"><Link to="/note"><h2 style={{ color: '#fff' }}>note</h2></Link></Menu.Item>
                             <Menu.Item key="3"><Link to="/demo"><h2 style={{ color: '#fff' }}>demo</h2></Link></Menu.Item>
-                            <Menu.Item key="4"><Link to="/void"><h2 style={{ color: '#fff' }}>void</h2></Link></Menu.Item>
+                            <Menu.Item key="4"><Link to="/video"><h2 style={{ color: '#fff' }}>video</h2></Link></Menu.Item>
                             <Menu.Item key="5"><Link to="/regin"><h2 style={{ color: '#fff' }}>regin</h2></Link></Menu.Item>
                             <Menu.Item key="6"><Link to="/leetcode"><h2 style={{ color: '#fff' }}>leetcode</h2></Link></Menu.Item>
                             <Menu.Item key="7"><Link to="/game"><h2 style={{ color: '#fff' }}>game</h2></Link></Menu.Item>
